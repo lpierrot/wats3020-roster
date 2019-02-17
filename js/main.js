@@ -4,7 +4,7 @@ class Person {
     constructor(name, email) {
         this.name = name;
         this.email = email;
-        this.username = email.split('@')[0]; //pierrotlione@seattleu.edu [lio] [seattleu.edu]
+        this.username = email.split('@')[0]; //pl@seattleu.edu [Lars] [seattleu.edu]
     }
 }
 
@@ -45,16 +45,15 @@ class Course {
     }
 
     addStudent() {
-        let name = prompt("Enter student name:", "Lio");
+        let name = prompt("Enter student\'s name:", "Lio Pierrot");
         let email = prompt("Enter student email: ", "pierrotlione@seattleu.edu");
         let newStudent = new Student(name, email);
         this.students.push(newStudent);
         updateRoster(this);
     }
-
     setTeacher() {
-        let name = prompt("Enter full teacher name:", "Lio P")
-        let email = prompt("Enter teacher email:", "pierrotlione@seattleu.edu");
+        let name = prompt("Enter full teacher name:", "Beck Peltz")
+        let email = prompt("Enter teacher email:", "peltzr@seattleu.edu");
         let honorific = prompt("Enter honorific: ", "Prof.");
         this.teacher = new Teacher(name, email, honorific);
         updateRoster(this);
@@ -71,9 +70,6 @@ class Course {
     }
 
     findStudent(username) {
-        // This method provided for convenience. It takes in a username and looks
-        // for that username on student objects contained in the `this.students`
-        // Array.
         let foundStudent = this.students.find(function (student, index) {
             return student.username == username;
         });
@@ -85,7 +81,6 @@ let courseCode = prompt("Enter the course code: ", "WATS 3020");
 let courseTitle = prompt("Enter the course title: ", "Intro to JavaScript");
 let courseDescription = prompt("Enter the course description: ", "Learning to code JS");
 let myCourse = new Course(courseCode, courseTitle, courseDescription);
-
 
 let rosterTitle = document.querySelector('#course-title');
 rosterTitle.innerHTML = `${myCourse.code}: ${myCourse.title}`;
