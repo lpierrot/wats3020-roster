@@ -47,9 +47,16 @@ class Course {
     addStudent() {
         let name = prompt("Enter student name:", "Lio Pierrot");
         let email = prompt("Enter student email: ", "pierrotlione@seattleu.edu");
-        let newStudent = new Student(name, email);
-        this.students.push(newStudent);
-        updateRoster(this);
+        let oldStudent = this.findStudent(email.split('@')[0]);
+        console.log(oldStudent);
+        if (oldStudent === undefined) {
+            let newStudent = new Student(name, email);
+            this.students.push(newStudent);
+            updateRoster(this);
+        } else {
+            alert('Student already exist!!!!');
+        }
+        
     }
     setTeacher() {
         let name = prompt("Enter full teacher name:", "Beck Peltz")
