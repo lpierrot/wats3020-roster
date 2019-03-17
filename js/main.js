@@ -54,7 +54,7 @@ class Course {
             this.students.push(newStudent);
             updateRoster(this);
         } else {
-            alert('Student already exist!!!!');
+            alert('Student already exist!');
         }
         
     }
